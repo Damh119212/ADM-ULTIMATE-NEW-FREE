@@ -27,7 +27,7 @@ else
 echo "${texto[$@]}"
 fi
 }
-link_bin="https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/ADM-ULTIMATE-NEW-FREE/master/Install/generadorcc.py"
+link_bin="https://raw.githubusercontent.com/Damh119212/ADM-ULTIMATE-NEW-FREE/master/Install/generadorcc.py"
 [[ ! -e /usr/bin/generadorcc.py ]] && wget -O /usr/bin/generadorcc.py ${link_bin} > /dev/null && chmod +x /usr/bin/generadorcc.py
 msg -ama "$(fun_trans "GERADOR DE BINS OFICIAL")"
 msg -bar
