@@ -11,7 +11,7 @@ declare -A texto
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
 local LANGUAGE=$(cat ${SCPidioma})
-[[ -z $LANGUAGE ]] && LINGUAGE=pt
+[[ -z $LANGUAGE ]] && LANGUAGE=pt
 [[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
 source /etc/texto-adm
 if [[ -z "$(echo ${texto[$@]})" ]]; then
