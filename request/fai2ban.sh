@@ -15,17 +15,17 @@ local retorno
 declare -A texto
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
-local LINGUAGE=$(cat ${SCPidioma})
-[[ -z $LINGUAGE ]] && LINGUAGE=pt
+local LANGUAGE=$(cat ${SCPidioma})
+[[ -z $LANGUAGE ]] && LANGUAGE=pt
 [[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
 source /etc/texto-adm
 if [[ -z "$(echo ${texto[$@]})" ]]; then
- retorno="$(source trans -e google -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+ retorno="$(source trans -e google -b pt:${LANGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
  if [[ $retorno = "" ]];then
- retorno="$(source trans -e bing -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+ retorno="$(source trans -e bing -b pt:${LANGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
  fi
  if [[ $retorno = "" ]];then 
- retorno="$(source trans -e yandex -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+ retorno="$(source trans -e yandex -b pt:${LANGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
  fi
 echo "texto[$@]='$retorno'"  >> /etc/texto-adm
 echo "$retorno"
