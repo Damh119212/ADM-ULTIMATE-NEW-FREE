@@ -143,7 +143,7 @@ EOF
 for dpts in $(echo $PORT); do
 sed -i "s/VAR/-p $dpts VAR/g" /etc/default/dropbear
 done
-sed -i "s/VAR/g" /etc/default/dropbear
+sed -i "s/VAR//g" /etc/default/dropbear
 } || {
 echo -e "Port 22
 Protocol 2
@@ -187,7 +187,7 @@ EOF
 for dpts in $(echo $PORT); do
 sed -i "s/VAR/-p $dpts VAR/g" /etc/default/dropbear
 done
-sed -i "s/VAR/g" /etc/default/dropbear
+sed -i "s/VAR//g" /etc/default/dropbear
 }
 fun_eth
 service ssh restart > /dev/null 2>&1
