@@ -77,16 +77,16 @@ local retorno
 declare -A texto
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
-local LINGUAGE=$(cat ${SCPidioma})
-[[ -z $LINGUAGE ]] && LINGUAGE=pt
-[[ $LINGUAGE = "pt" ]] && echo "$@" && return
+local LANGUAGE=$(cat ${SCPidioma})
+[[ -z $LANGUAGE ]] && LANGUAGE=pt
+[[ $LANGUAGE = "pt" ]] && echo "$@" && return
 [[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
 source /etc/texto-adm
 if [[ -z "$(echo ${texto[$@]})" ]]; then
 if [[ `echo "$@" | grep -o '*'` = "*" ]]; then
-retorno="$(source trans -e bing -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig'| awk '{print toupper($0)}' 2>/dev/null)"
+retorno="$(source trans -e bing -b pt:${LANGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig'| awk '{print toupper($0)}' 2>/dev/null)"
 else
-retorno="$(source trans -e bing -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+retorno="$(source trans -e bing -b pt:${LANGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
 fi
 echo "texto[$@]='$retorno'"  >> /etc/texto-adm
 echo "$retorno"
