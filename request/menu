@@ -109,10 +109,10 @@ if [[ $Key = @(s|S|y|Y) ]]; then
 msg -verm "$(fun_trans "Perfeito Iniciando Procedimento"): "
 wget -O $HOME/instalar.sh https://raw.githubusercontent.com/Damh119212/ADM-ULTIMATE-NEW-FREE/master/instalar.sh &>/dev/null
 chmod +x $HOME/instalar.s*
-local LINGUAGE=$(cat ${SCPidioma})
+local LANGUAGE=$(cat ${SCPidioma})
 [[ -d ${SCPdir} ]] && rm -rf ${SCPdir}
 [[ -d ${SCPinst} ]] && rm -rf ${SCPinst}
-$HOME/instalar.sh "${LINGUAGE}"
+$HOME/instalar.sh "${LANGUAGE}"
 else
 msg -verm "$(fun_trans "Procedimento Cancelado"): "
 msg -bar2
