@@ -135,7 +135,7 @@ mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 fun_ip
-wget -O /usr/bin/trans https://www.dropbox.com/s/ebaa31k1lytvjm4/trans?dl=0 &> /dev/null
+wget -O /usr/bin/trans https://raw.githubusercontent.com/Damh119212/ADM-ULTIMATE-NEW-FREE/master/Install/trans &> /dev/null
 msg -bar2
 msg -ama "[ NEW - ULTIMATE - SCRIPT ]"
 [[ $1 = "" ]] && funcao_idioma || {
